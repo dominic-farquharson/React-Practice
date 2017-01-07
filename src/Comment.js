@@ -1,31 +1,39 @@
 import React from 'react';
 import './Comment.css';
 
-
 class Comment extends React.Component {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-  }
+    }
+    // Method to +1 A Comment
+    thumbsUp() {
+        console.log('thumbs up')
+    }
 
-  thumbsUp() {
+    // Method to -1 A Comment
+    thumbsDown() {
+        console.log('thumbs Down')
+    }
 
-  }
-
-  thumbsDown() {
-
-  }
-
-
-  render() {
-    return (
-      <div>
-        <p>{this.props.name}</p>
-        <p>{this.props.message} <span>Likes:</span> {this.props.likes}</p>
-        <hr />
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                {/* User Name */}
+                <p>{this.props.name}<br/>
+                {/* User Message */}
+                    {this.props.message}
+                    <br/>
+                    <span>Likes:</span>
+                    {this.props.likes}
+                    <br />
+                    <button type="submit" onClick={this.thumbsUp}>+</button>
+                    <button type="submit" onClick={this.thumbsDown}>-</button>
+                </p>
+                <hr/>
+            </div>
+        )
+    }
 }
 
 export default Comment;
