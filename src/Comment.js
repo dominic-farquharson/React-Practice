@@ -5,19 +5,29 @@ class Comment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            like:0,
+            like:0
         };
         this.thumbsUp = this.thumbsUp.bind(this);
+        this.thumbsDown = this.thumbsDown.bind(this);
 
     }
     // Method to +1 A Comment
     thumbsUp() {
-        console.log(this.state.like+=1);
+      this.setState(
+        {
+          numberLikes: this.state.like+=1,
+
+
+        });
+
     }
 
     // Method to -1 A Comment
     thumbsDown() {
-        console.log('thumbs Down')
+      console.log(this)
+        this.setState({
+            numberLikes: this.state.like-=1
+        })
     }
 
     render() {
@@ -29,7 +39,7 @@ class Comment extends React.Component {
                     {this.props.message}
                     <br/>
                     <span>Likes:</span>
-                    {this.state.like}
+                    {this.state.numberLikes}
                     <br />
                     <button type="submit" onClick={this.thumbsUp}>+</button>
                     <button type="submit" onClick={this.thumbsDown}>-</button>
